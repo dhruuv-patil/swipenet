@@ -1,0 +1,44 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #1e293b; /* dark navy */
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left .logoone,
+.nav-left .logotwo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3b82f6; /* Tailwind blue-500 */
+}
+
+.nav-left h2 span {
+  color: #f43f5e; /* Tailwind rose-500 */
+}
+
+.nav-right {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #6366f1;
+}

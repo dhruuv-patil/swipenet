@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+.pnp.*
+jspm_packages/
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# Build
+dist/
+build/
+.out/
+.cache/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/

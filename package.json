@@ -1,0 +1,25 @@
+{
+  "name": "swipenet",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/dhruuv-patil/SwipeNet#readme",
+  "bugs": {
+    "url": "https://github.com/dhruuv-patil/SwipeNet/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhruuv-patil/SwipeNet.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.16.2",
+    "react-icons": "^5.5.0"
+  }
+}
