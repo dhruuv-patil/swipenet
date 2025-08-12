@@ -15,7 +15,11 @@ connectDB(); // Connect to MongoDB
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://swipenet-lplo.vercel.app/", // Your Vercel frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 app.use(express.json());
 
@@ -58,3 +62,4 @@ const PORT =  5001;
 server.listen(PORT, () =>
   console.log(`🚀 Server running on http://localhost:${PORT}`)
 );
+
