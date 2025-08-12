@@ -14,7 +14,9 @@ dotenv.config();
 connectDB(); // Connect to MongoDB
 
 const app = express();
+
 app.use(cors());
+
 app.use(express.json());
 
 // ✅ API Routes
@@ -27,7 +29,7 @@ app.use("/api/chats", chatRoutes);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*", // OR frontend URL like "http://localhost:3000"
+    origin: "http://localhost:5173", // OR frontend URL like "http://localhost:3000"
     methods: ["GET", "POST"],
   },
 });
@@ -52,7 +54,7 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT =  5000;
+const PORT =  5001;
 server.listen(PORT, () =>
   console.log(`🚀 Server running on http://localhost:${PORT}`)
 );

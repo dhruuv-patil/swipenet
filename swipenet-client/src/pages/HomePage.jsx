@@ -7,7 +7,7 @@ const HomePage = () => {
     <div>
         <HomeNavbar/>
       
-      <HeroSection/>
+        <HeroSection/>
       
     </div>
     

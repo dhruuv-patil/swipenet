@@ -1,0 +1,44 @@
+src/
+│
+├── assets/                    # Images, icons, logos, etc.
+│
+├── components/                # Reusable UI components
+│   ├── Navbar/
+│   ├── Footer/
+│   ├── JobCard/
+│   └── ...                   
+│
+├── layouts/                  # Layouts (optional but useful)
+│   ├── MainLayout.jsx        # With Navbar, Footer, etc.
+│   ├── EmployerLayout.jsx    # Employer-specific layout
+│   └── StudentLayout.jsx     # Student-specific layout
+│
+├── pages/
+│   ├── common/               # Pages shared by both roles
+│   │   ├── HomePage.jsx
+│   │   ├── LoginPage.jsx
+│   │   ├── SignupPage.jsx
+│   │   └── AboutPage.jsx
+│
+│   ├── employer/             # Employer-specific pages
+│   │   ├── Dashboard.jsx
+│   │   ├── PostJob.jsx
+│   │   └── Applicants.jsx
+│
+│   └── student/              # Student-specific pages
+│       ├── Dashboard.jsx
+│       ├── Jobs.jsx
+│       └── AppliedJobs.jsx
+│
+├── routes/                   # All route definitions
+│   └── AppRouter.jsx
+│
+├── utils/                    # Utility functions (e.g. auth check)
+│   └── authUtils.js
+│
+├── context/                  # Global state (optional)
+│   └── AuthContext.jsx
+│
+├── App.jsx
+├── main.jsx
+└── index.css

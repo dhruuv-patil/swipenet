@@ -4,7 +4,7 @@ import './homenavbar.css';
 
 const HomeNavbar = () => {
   return (
-    <div className="navbar">
+    <div class="navbar">
       <div className="nav-left">
         <h2 className="logoone">Swipe</h2>
         <h2 className="logotwo">Net<span>.</span></h2>

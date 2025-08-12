@@ -1,0 +1,111 @@
+:root {
+  --bg-dark: #111827;
+  --bg-sidebar: #1d2a4e;
+  --bg-card-hover: #374151;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --accent-blue: #3b82f6;
+  --accent-cyan: #22d3ee;
+}
+
+/* ====== Global ====== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text-primary);
+}
+
+/* ====== Navbar ====== */
+.navbar {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: var(--bg-sidebar);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ====== Sidebar ====== */
+.sidebar {
+  width: 240px;
+  background-color: var(--bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  border-top-right-radius: 10px;
+}
+
+/* ====== Container ====== */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ====== Main Content ====== */
+.main-content {
+  flex: 1;
+  background-color: var(--bg-dark);
+  padding: 70px 40px 40px 40px; /* Top padding adjusted for navbar */
+}
+
+.main-content h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.main-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* ====== Badges ====== */
+.badges {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.badge {
+  background-color: var(--bg-card-hover);
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+/* ====== Dashboard Cards ====== */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  background-color: var(--bg-sidebar);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  background-color: var(--bg-card-hover);
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}

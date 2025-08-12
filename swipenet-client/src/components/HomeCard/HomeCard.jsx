@@ -2,6 +2,7 @@ import React from 'react';
 import './homecard.css'; 
 const Card = () => {
   return (
+  <div className="job-container">
     <div class="job-card">
       <div class="job-header">
         <h3 class="job-title">Senior Frontend Developer</h3>
@@ -34,6 +35,7 @@ const Card = () => {
         <button class="match-btn">Match</button>
       </div>
     </div>
+  </div>
   );
 };
 

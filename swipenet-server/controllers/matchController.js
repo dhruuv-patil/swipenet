@@ -1,7 +1,7 @@
 import Match from "../models/Match.js";
 import User from "../models/User.js";
 
-// ⏩ User A swipes right on User B
+// User A swipes right on User B
 export const swipeRight = async (req, res) => {
   const currentUserId = req.user._id;
   const targetUserId = req.params.id;

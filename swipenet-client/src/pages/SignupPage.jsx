@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./auth.css";
-const navigate = useNavigate();
+
 const Signup = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,23 +15,33 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+  console.log({ name, email, password, userType });
+
     if (!userType) {
       setError("Please select Employer or Job Seeker");
       return;
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
+      const res = await axios.post("http://localhost:5001/api/auth/register", {
         name,
         email,
         password,
         userType,
       });
+      
 
       localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data));
-
-      navigate("/dashboard"); // or use navigate()
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+      localStorage.setItem("user.userType", res.data.userType);
+      console.log("Signup successful, redirecting...");
+      if (userType === "jobseeker") {
+        navigate("/Jobseeker/Dashboard");
+      } else if (userType === "employer") {
+        navigate("/Employer/Dashboard");
+      } else {
+        navigate("/");
+      }
     } catch (err) {
       setError(err.response?.data?.message || "Signup failed");
     }
@@ -74,8 +85,8 @@ const Signup = () => {
             <input
               type="radio"
               name="userType"
-              value="Job Seeker"
-              checked={userType === "Job Seeker"}
+              value="jobseeker"
+              checked={userType === "jobseeker"}
               onChange={(e) => setUserType(e.target.value)}
             />
             Job Seeker
@@ -85,8 +96,8 @@ const Signup = () => {
             <input
               type="radio"
               name="userType"
-              value="Employer"
-              checked={userType === "Employer"}
+              value="employer"
+              checked={userType === "employer"}
               onChange={(e) => setUserType(e.target.value)}
             />
             Employer

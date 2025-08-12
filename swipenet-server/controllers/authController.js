@@ -13,8 +13,10 @@ const generateToken = (userId) => {
 // @route   POST /api/auth/register
 export const register = async (req, res) => {
   try {
+    console.log("📥 Incoming registration:", req.body); // log input
+
     const { name, email, password, userType } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
 
     const existingUser = await User.findOne({ email });
     if (existingUser)
@@ -40,6 +42,7 @@ export const register = async (req, res) => {
       token: generateToken(user._id),
     });
   } catch (error) {
+    console.error("❌ Register Error:", error.message);
     res.status(500).json({ message: 'Server Error', error: error.message });
   }
 };

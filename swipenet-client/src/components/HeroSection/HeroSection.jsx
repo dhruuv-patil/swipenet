@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../HomeCard/HomeCard';
 import './herosection.css';
+import { Link } from 'react-router-dom'; // ✅ Important!
 
 const HeroSection = () => {
   return (
@@ -18,12 +19,16 @@ const HeroSection = () => {
             internships, or talent and level up your career.
           </h4>
           <div className="buttons">
+            <Link to="/signup">
             <button className="primary-btn">
               <i className="fa-solid fa-user"></i> I'm a Job Seeker
             </button>
+            </Link>
+            <Link to="/signup">
             <button className="sec-btn">
               <i className="fa-solid fa-briefcase"></i> I'm an Employer
             </button>
+            </Link>
           </div>
         </div>
 
