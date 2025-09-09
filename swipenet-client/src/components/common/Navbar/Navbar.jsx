@@ -25,7 +25,7 @@ const Navbar = () => {
       <div className="flex items-center gap-4">
         {/* My Profile */}
         <Link
-          to="/employer/profile"
+          to="/profile/jobseeker"
           className="flex items-center gap-2 text-white hover:text-blue-400 transition"
         >
           <User size={18} />
@@ -35,7 +35,7 @@ const Navbar = () => {
         {/* Logout */}
         <button
           onClick={handleLogout}
-          className="flex items-center gap-2 bg-rose-500 text-white px-3 py-2 rounded-md hover:bg-rose-600 transition"
+          className="flex items-center gap-2  text-white px-3 py-2 rounded-md hover:bg-rose-600 transition"
         >
           <LogOut size={18} />
           <span className="text-sm">Logout</span>

@@ -9,7 +9,7 @@ const EmployerDashboard =()=> {
 
       {/* Main Content */}
       <main className="main-content">
-        <h1>👋 Hello {name}!</h1>
+        <h1>👋 Hello!{name}</h1>
         <p>Let’s connect you with amazing talent in seconds.</p>
 
         <div className="badges">

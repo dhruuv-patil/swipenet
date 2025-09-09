@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import "./dashboardhome.css"; 
 import Navbar from "../../../components/common/Navbar/Navbar";
 import JobseekerDock from "../../../components/common/menu/JsDock";
+import { CiSearch } from "react-icons/ci";
+import { FaBriefcase,FaRegHeart } from "react-icons/fa";
+
 
 const  JobseekerDashboard = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -25,17 +28,17 @@ const  JobseekerDashboard = () => {
 
         <div className="dashboard-cards">
           <div className="dashboard-card">
-            <div className="card-icon">💼</div>
+            <div className="card-icon"><FaBriefcase/></div>
             <div className="card-number">5</div>
             <div className="card-text">New Job Posts</div>
           </div>
           <div className="dashboard-card">
-            <div className="card-icon">❤️</div>
+            <div className="card-icon"><FaRegHeart /></div>
             <div className="card-number">3</div>
             <div className="card-text">New Matches</div>
           </div>
           <div className="dashboard-card">
-            <div className="card-icon">🔍</div>
+            <div className="card-icon"><CiSearch /></div>
             <div className="card-number">10</div>
             <div className="card-text">Profiles Found</div>
           </div>

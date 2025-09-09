@@ -51,7 +51,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: '',
     },
-
+    jobseekerProfile: { type: mongoose.Schema.Types.ObjectId, ref: "JobseekerProfile" },
+    employerProfile: { type: mongoose.Schema.Types.ObjectId, ref: "EmployerProfile" },
+  
     swipedRight: [
       {
         type: mongoose.Schema.Types.ObjectId,

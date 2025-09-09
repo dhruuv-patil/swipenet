@@ -5,8 +5,10 @@ import Login from './pages/LoginPage';
 import Signup from './pages/SignupPage';
 import JobseekerDashboard from './pages/Dashboard/Jobseeker/JobseekerDashboard';
 import EmployerDashboard from  './pages/Dashboard/Employer/EmployerDashboard';
+import JobseekerProfileCreation from './components/common/JsForm';
 
 import ProtectedRoute from './routes/ProtectedRoute';
+// import JobseekerProfileCreation from './components/common/JsForm';
 const appRouter = createBrowserRouter([
   {
     path:"/",
@@ -29,6 +31,12 @@ const appRouter = createBrowserRouter([
     element: (
       <ProtectedRoute allowedType="employer">
         <EmployerDashboard />
+        </ProtectedRoute>
+    )},
+    {path: "/profile/jobseeker",
+    element: (
+      <ProtectedRoute allowedType="jobseeker">
+        <JobseekerProfileCreation />
         </ProtectedRoute>
     )}
 ])

@@ -11,7 +11,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState(""); // ✅ Employer or Job Seeker
   const [error, setError] = useState("");
-  const API = process.env.REACT_APP_API_URL || "http://localhost:5001";
+  // const API = process.env.REACT_APP_API_URL || "http://localhost:5001";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const Signup = () => {
     }
 
     try {
-      const res = await axios.post(`${API}/api/auth/register`, {
+      const res = await axios.post(`http://localhost:5001/api/auth/register`, {
         name,
         email,
         password,
