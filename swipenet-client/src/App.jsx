@@ -6,9 +6,12 @@ import Signup from './pages/SignupPage';
 import JobseekerDashboard from './pages/Dashboard/Jobseeker/JobseekerDashboard';
 import EmployerDashboard from  './pages/Dashboard/Employer/EmployerDashboard';
 import JobseekerProfileCreation from './components/common/JsForm';
-
+import EmployerProfileCreation from './components/common/EpForm';
 import ProtectedRoute from './routes/ProtectedRoute';
-// import JobseekerProfileCreation from './components/common/JsForm';
+import JsProfile from './pages/Profile/JsProfile';
+import EpProfile from './pages/Profile/EpProfile';
+import JsSwipe from './pages/SwipePage/JsSwipe';
+
 const appRouter = createBrowserRouter([
   {
     path:"/",
@@ -20,23 +23,46 @@ const appRouter = createBrowserRouter([
     path:'/Signup',
     element:<Signup/>
   },
-  {
-    path: "/Jobseeker/Dashboard",
+  {path: "/Jobseeker/Dashboard",
     element: (
-      <ProtectedRoute allowedType="jobseeker">
+      <ProtectedRoute allowedUserType="jobseeker">
         <JobseekerDashboard />
         </ProtectedRoute>
     )},
   {path: "/Employer/Dashboard",
     element: (
-      <ProtectedRoute allowedType="employer">
+      <ProtectedRoute allowedUserType="employer">
         <EmployerDashboard />
         </ProtectedRoute>
     )},
     {path: "/profile/jobseeker",
     element: (
-      <ProtectedRoute allowedType="jobseeker">
-        <JobseekerProfileCreation />
+      <ProtectedRoute allowedUserType="jobseeker">
+        <JsProfile/>
+        </ProtectedRoute>
+    )},
+    {path: "/profile/employer",
+    element: (
+      <ProtectedRoute allowedUserType="employer">
+        <EpProfile/>
+        </ProtectedRoute>
+    )},
+    {path: "/create-profile/jobseeker",
+    element: (
+      <ProtectedRoute allowedUserType="jobseeker">
+        <JobseekerProfileCreation/>
+        </ProtectedRoute>
+    )},
+    {path: "/create-profile/employer",
+    element: (
+      <ProtectedRoute allowedUserType="employer">
+        <EmployerProfileCreation/>
+        </ProtectedRoute>
+    )},
+    {path: "/jobseeker/SwipePage",
+    element: (
+      <ProtectedRoute allowedUserType="jobseeker">
+        <JsSwipe/>
         </ProtectedRoute>
     )}
 ])

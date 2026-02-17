@@ -4,6 +4,8 @@ import cors from "cors";
 import http from "http";
 import { Server } from "socket.io";
 import connectDB from "./config/db.js";
+import JobseekerProfile from "./routes/JsProfileRoutes.js";
+import EmployerProfile from "./routes/EpProfileRoutes.js";
 
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
@@ -16,7 +18,7 @@ connectDB(); // Connect to MongoDB
 const app = express();
 
 app.use(cors({
-  origin: "https://swipenet-lplo.vercel.app/", // Your Vercel frontend URL
+  origin: "http://localhost:5173",// Your Vercel frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
@@ -28,6 +30,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/matches", matchRoutes);
 app.use("/api/chats", chatRoutes);
+app.use("/api/jobseeker-profile", JobseekerProfile);
+app.use("/api/employer-profile", EmployerProfile);
 
 // ✅ Create server and attach socket.io
 const server = http.createServer(app);

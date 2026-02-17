@@ -18,7 +18,7 @@ const JobseekerDock = () => {
       </button>
 
       
-      <button className="flex flex-col items-center text-white hover:scale-110 transition duration-300">
+      <button onClick={() => navigate("/jobseeker/SwipePage")} className="flex flex-col items-center text-white hover:scale-110 transition duration-300">
         <BsBriefcase size={24} />
         <span className="text-xs ">Swipe</span>
       </button>

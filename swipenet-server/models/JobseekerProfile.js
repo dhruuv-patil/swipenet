@@ -2,36 +2,48 @@ import mongoose from "mongoose";
 
 const jobseekerProfileSchema = new mongoose.Schema(
   {
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // links to your User model
+    user: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "User", 
+      
+    },
+
+    // ✅ Mandatory fields
+    fullName: { type: String, trim: true, required: true },
+    tagline: { type: String, trim: true, required: true },
+    currentRole: { type: String, trim: true, required: true },
+    employmentType: { type: String, required: true },
+    experienceLevel: { type: String, required: true },
+    preferredIndustry: { type: String, required: true },
+    location: { type: String, trim: true, required: true },
+    lookingFor: { type: String, required: true },
+
+    // ✅ Optional fields
+    linkedinUrl: { type: String },
+    bio: { type: String, trim: true },
+    profileImage: { type: String },
+
+    // Require at least 1 skill
+    skills: {
+      type: [String],
+      trim: true,
+      validate: {
+        validator: (val) => val.length > 0,
+        message: "At least one skill is required",
+      },
       required: true,
     },
 
-    // Basic Info
-    bio: {
-      type: String,
-      trim: true,
-    },
-    location: {
-      type: String,
-      trim: true,
-    },
-    skills: [
-      {
-        type: String,
-        trim: true,
-      },
-    ],
     experience: [
       {
-        title: { type: String, required: true }, // e.g., Intern, Web Dev
+        title: { type: String, required: true },
         company: { type: String },
         startDate: { type: Date },
         endDate: { type: Date },
         description: { type: String },
       },
     ],
+
     education: [
       {
         degree: { type: String },
@@ -40,24 +52,14 @@ const jobseekerProfileSchema = new mongoose.Schema(
       },
     ],
 
-    // Extra Details
     portfolioLinks: [
       {
-        label: { type: String }, // e.g., GitHub, LinkedIn
+        label: { type: String },
         url: { type: String },
       },
     ],
-    resume: {
-      type: String, // store file URL if you allow uploads
-    },
 
-    // Preferences
-    lookingFor: {
-      type: String, // e.g., Internship, Part-time, Full-time
-    },
-    jobType: {
-      type: String, // Remote, Onsite, Hybrid
-    },
+    resume: { type: String },
   },
   { timestamps: true }
 );

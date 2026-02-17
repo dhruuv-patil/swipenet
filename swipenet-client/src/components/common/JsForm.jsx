@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Card } from "../ui/card";
 import { Camera, MapPin, Briefcase, GraduationCap, Link2, Plus, X, Upload, CalendarIcon } from "lucide-react";
 import {Input  } from "../ui/input";
@@ -11,7 +11,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import Navbar from "./Navbar/Navbar";
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const JobseekerProfileCreation = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -31,6 +32,50 @@ const JobseekerProfileCreation = () => {
   const [resume, setResume] = useState(null);
   const [workExperiences, setWorkExperiences] = useState([]);
   const [educations, setEducations] = useState([]);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:5001/api/jobseeker-profile/me",
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+
+        const profile = res.data;
+
+        setFormData({
+          fullName: profile.fullName || "",
+          tagline: profile.tagline || "",
+          location: profile.location || "",
+          currentRole: profile.currentRole || "",
+          employmentType: profile.employmentType || "",
+          experienceLevel: profile.experienceLevel || "",
+          portfolioUrl: profile.portfolioUrl || "",
+          linkedinUrl: profile.linkedinUrl || "",
+          lookingFor: profile.lookingFor || "",
+          preferredIndustry: profile.preferredIndustry || "",
+          bio: profile.bio || "",
+        });
+
+        setSelectedSkills(profile.skills || []);
+        setWorkExperiences(profile.experience || []);
+        setEducations(profile.education || []);
+        setProfileImage(profile.profileImage || null);
+        setResume(profile.resume || null);
+
+      } catch (error) {
+        console.error("Error fetching profile:", error.response?.data || error.message);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  const navigate = useNavigate();
 
   const availableSkills = [
     "React", "Node.js", "JavaScript", "TypeScript", "Python", "Java", "C++",
@@ -133,14 +178,61 @@ const JobseekerProfileCreation = () => {
     console.log("Save draft", { formData, selectedSkills, workExperiences, educations, profileImage, resume });
   };
 
-  const handleCreateProfile = () => {
-    // Add validation and API call here
-    console.log("Create profile", { formData, selectedSkills, workExperiences, educations, profileImage, resume });
-  };
+  const handleCreateProfile = async () => {
+  try {
+    // Retrieve user from localStorage
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user || !user.id) {
+      console.error("User not found in localStorage");
+      return;
+    }
+    // ✅ This is your MongoDB ObjectId
+
+    // Prepare payload
+    const payload = {
+      
+      fullName: formData.fullName,
+      tagline: formData.tagline,
+      currentRole: formData.currentRole,
+      employmentType: formData.employmentType,
+      experienceLevel: formData.experienceLevel,
+      preferredIndustry: formData.preferredIndustry,
+      linkedinUrl: formData.linkedinUrl,
+      bio: formData.bio,
+      location: formData.location,
+      profileImage, // URL or file upload
+      skills: selectedSkills,
+      experience: workExperiences,
+      education: educations,
+      portfolioLinks: formData.portfolioLinks,
+      resume, // URL or file upload
+      lookingFor: formData.lookingFor,
+      // jobType: formData.jobType,
+    };
+
+    // Make API call
+    const res = await axios.post(
+      "http://localhost:5001/api/jobseeker-profile/create-profile",
+      payload,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
+
+    console.log("Profile saved:", res.data);
+    // Redirect to dashboard or profile page
+    navigate("/Jobseeker/Dashboard");
+
+  } catch (error) {
+    console.error("Error creating profile:", error.response?.data || error.message);
+  }
+};
 
   return (
     <>
-    <Navbar />
+    
     <div className="min-h-screen bg-gradient-to-br from-swipe-navy via-background to-swipe-dark py-8 px-4">
       {/* Hidden file inputs for uploads */}
       <input id="profileImageInput" type="file" accept="image/*" className="hidden" onChange={handleProfileImageUpload} />

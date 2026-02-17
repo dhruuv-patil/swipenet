@@ -74,6 +74,7 @@ const userSchema = new mongoose.Schema(
         ref: 'User',
       },
     ],
+    hasProfile: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

@@ -29,6 +29,7 @@ const Signup = () => {
         email,
         password,
         userType,
+        
       });
       
 
@@ -37,12 +38,14 @@ const Signup = () => {
       localStorage.setItem("user.userType", res.data.userType);
       console.log("Signup successful, redirecting...");
       if (userType === "jobseeker") {
-        navigate("/Jobseeker/Dashboard");
+        navigate("/create-profile/jobseeker");
       } else if (userType === "employer") {
-        navigate("/Employer/Dashboard");
+        navigate("/create-profile/employer");
       } else {
         navigate("/");
       }
+      
+
     } catch (err) {
       setError(err.response?.data?.message || "Signup failed");
     }

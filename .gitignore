@@ -27,4 +27,4 @@ Thumbs.db
 
 # Testing
 coverage/
-.nyc_output/
+.nyc_output/swipenet-server/.env

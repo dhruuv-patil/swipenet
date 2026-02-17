@@ -12,9 +12,10 @@ const ProtectedRoute = ({ children, allowedUserType }) => {
   }
 
   // If userType doesn't match the required one
-  if (allowedUserType && user.userType !== allowedUserType) {
-    return <Navigate to={`/${user.userType}/dashboard`} />;
-  }
+  if (allowedUserType && user.userType.toLowerCase() !== allowedUserType.toLowerCase()) {
+  return <Navigate to={`/${user.userType}/dashboard`} />;
+}
+
 
   return children;
 };
