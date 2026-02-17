@@ -28,3 +28,4 @@ Thumbs.db
 # Testing
 coverage/
 .nyc_output/swipenet-server/.env
+swipenet-server/.env
