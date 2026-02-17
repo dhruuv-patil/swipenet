@@ -8,29 +8,29 @@ SwipeNet is a modern swipe-based networking platform designed for **students**, 
 
 ## ✨ Features
 
-✅ Modern Swipe UI for Matchmaking  
-✅ Role-based Authentication (Student / Freelancer / Employer)  
-✅ Profile Creation with Resume & Skills  
-✅ Real-Time Chat (via Socket.io)  
-✅ Job/Internship Listings with Filters  
-✅ Built for Pune — Local & Focused  
+1) Modern Swipe UI for Matchmaking  
+2) Role-based Authentication (Student / Freelancer / Employer)  
+3) Profile Creation with Resume & Skills  
+4) Real-Time Chat (via Socket.io)  
+5) Job/Internship Listings with Filters  
+6) Built for Pune — Local & Focused  
 
 ---
 
 ## 🛠 Tech Stack
 
 ### 🔹 Frontend
-- React.js ⚛️
-- Tailwind CSS 💨
+- React.js 
+- Tailwind CSS 
 - Axios
 - React Router
 
 ### 🔹 Backend
-- Node.js 🟩
-- Express.js 🚂
-- MongoDB 🍃
-- JWT Auth 🔐
-- Socket.io 💬
+- Node.js 
+- Express.js 
+- MongoDB 
+- JWT Auth 
+- Socket.io 
 
 ---
 
