@@ -4,6 +4,7 @@ import axios from "axios";
 import { Nav } from "react-day-picker";
 import Navbar from "@/components/common/Navbar/Navbar";
 import JobseekerDock from "@/components/common/menu/JsDock";
+import API from "@/api";
 
 
 const JsSwipe = () => {
@@ -15,7 +16,7 @@ const JsSwipe = () => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5001/api/jobseeker-profile/me", {
+        const res = await API.get("/api/jobseeker-profile/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

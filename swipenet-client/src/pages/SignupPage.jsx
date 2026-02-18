@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./auth.css";
+import API from "../api";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const Signup = () => {
     }
 
     try {
-      const res = await axios.post(`http://localhost:5001/api/auth/register`, {
+      const res = await API.post(`/api/auth/register`, {
         name,
         email,
         password,

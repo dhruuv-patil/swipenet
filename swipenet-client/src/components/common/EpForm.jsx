@@ -8,6 +8,7 @@ import { Briefcase, MapPin, Link2, Plus, X, Camera, Upload } from "lucide-react"
 import { useNavigate } from "react-router-dom";
 import { Badge } from "../ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import API from "@/api";
 // import { n } from "@clerk/clerk-react/dist/useAuth-CbDfW7Rs";
 
 const EmployerProfileCreation = () => {
@@ -27,7 +28,7 @@ const EmployerProfileCreation = () => {
   useEffect(() => {
   const fetchEmployerProfile = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/employer-profile/me", {
+      const res = await API.get("/api/employer-profile/me", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
 
@@ -106,8 +107,8 @@ const EmployerProfileCreation = () => {
   try {
     const payload = { ...formData, logo, jobs };
 
-    const res = await axios.post(
-      "http://localhost:5001/api/employer-profile/create-profile",
+    const res = await API.post(
+      "/api/employer-profile/create-profile",
       payload,
       {
         headers: {

@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import Navbar from "./Navbar/Navbar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API from "@/api";
 const JobseekerProfileCreation = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -36,8 +37,8 @@ const JobseekerProfileCreation = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:5001/api/jobseeker-profile/me",
+        const res = await API.get(
+          "ht/api/jobseeker-profile/me",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -211,8 +212,8 @@ const JobseekerProfileCreation = () => {
     };
 
     // Make API call
-    const res = await axios.post(
-      "http://localhost:5001/api/jobseeker-profile/create-profile",
+    const res = await API.post(
+      "/api/jobseeker-profile/create-profile",
       payload,
       {
         headers: {
