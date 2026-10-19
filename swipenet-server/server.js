@@ -9,13 +9,25 @@ import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import matchRoutes from "./routes/matchRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
+import { initMatchExpiryWorker } from "./workers/matchExpiryWorker.js";
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.join(__dirname, ".env") });
 dotenv.config();
 connectDB(); // Connect to MongoDB
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Health check route
+app.get("/", (req, res) => {
+  res.json({ message: "SwipeNet API is running 🚀" });
+});
 
 // ✅ API Routes
 app.use("/api/auth", authRoutes);
@@ -27,7 +39,7 @@ app.use("/api/chats", chatRoutes);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*", // OR frontend URL like "http://localhost:3000"
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
@@ -39,7 +51,7 @@ io.on("connection", (socket) => {
   // Join a chat room (roomId = matchId)
   socket.on("joinRoom", (roomId) => {
     socket.join(roomId);
-    console.log(`🔗 User joined room ${roomId}`);
+    console.log(`🔗 Socket ${socket.id} joined room ${roomId}`);
   });
 
   // Handle incoming message and emit to room
@@ -52,7 +64,10 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT =  5000;
+// ✅ Initialize Background Match Expiry Worker (48h rule)
+initMatchExpiryWorker(io);
+
+const PORT = process.env.PORT || 5000;
 server.listen(PORT, () =>
   console.log(`🚀 Server running on http://localhost:${PORT}`)
 );

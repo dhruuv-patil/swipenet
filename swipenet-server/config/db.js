@@ -1,10 +1,10 @@
-// config/db.js
 import mongoose from 'mongoose';
 
- const connectDB = async () => {
+const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      dbName: 'swipenet', // Optional if not in URI
+    const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/swipenet';
+    await mongoose.connect(mongoUri, {
+      dbName: 'swipenet',
     });
 
     console.log('✅ MongoDB Connected');
@@ -13,4 +13,5 @@ import mongoose from 'mongoose';
     process.exit(1);
   }
 };
+
 export default connectDB;

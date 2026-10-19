@@ -1,0 +1,82 @@
+/* footer.css - Modern Clean Portal Footer */
+.portal-footer-wrapper {
+  background: #222628;
+  color: #a0abb0;
+  padding: 48px 24px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: auto;
+}
+
+.portal-footer-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+  .portal-footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .portal-footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer-brand-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.footer-brand-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.footer-col-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links-list li a, .footer-links-list li span {
+  font-size: 0.88rem;
+  color: #a0abb0;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-links-list li a:hover, .footer-links-list li span:hover {
+  color: #ffffff;
+}
+
+.portal-footer-bottom {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: #6c787d;
+}

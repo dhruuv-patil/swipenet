@@ -13,18 +13,29 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
       lowercase: true,
+      trim: true,
     },
 
     password: {
       type: String,
       required: true,
-      minlength: 8,
+      minlength: 6,
     },
 
     userType: {
       type: String,
-      enum: ['jobseeker', 'employer'],
+      enum: ['jobseeker', 'employer', 'Job Seeker', 'Employer'],
       required: true,
+    },
+
+    title: {
+      type: String,
+      default: '',
+    },
+
+    company: {
+      type: String,
+      default: '',
     },
 
     bio: {
@@ -42,9 +53,29 @@ const userSchema = new mongoose.Schema(
       default: [],
     },
 
+    salary: {
+      type: String,
+      default: '',
+    },
+
+    experience: {
+      type: String,
+      default: '',
+    },
+
+    teamSize: {
+      type: String,
+      default: '',
+    },
+
+    benefits: {
+      type: String,
+      default: '',
+    },
+
     profilePic: {
       type: String,
-      default: '', // store URL or filename of uploaded profile picture
+      default: '',
     },
 
     location: {

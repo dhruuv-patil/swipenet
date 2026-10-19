@@ -1,0 +1,549 @@
+/* MatchChoreography.module.css - Simple Professional Typography & Blueish Gradient */
+
+.runway {
+  --bg: #0d1117;
+  --card-bg: #161b22;
+  --card-border: rgba(255, 255, 255, 0.09);
+  --text-main: #f0f6fc;
+  --text-muted: #8b949e;
+  --accent-blue: #0061ff;
+  --accent-cyan: #38bdf8;
+  --blue-gradient: linear-gradient(135deg, #0061ff, #38bdf8);
+  --pill-bg: #21262d;
+  position: relative;
+  height: 420vh;
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+  overflow: clip;
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  perspective: 1200px;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 97, 255, 0.05) 0%, rgba(13, 17, 23, 0.98) 70%, #0d1117 100%);
+}
+
+.stage > * {
+  grid-area: 1 / 1;
+}
+
+/* =========================================
+   HUD: Simple Clean Human Typography
+   ========================================= */
+
+.hudTop,
+.hudBottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  pointer-events: none;
+  z-index: 40;
+}
+
+.hudTop {
+  top: 0;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.hudBrand {
+  color: #f0f6fc;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.hudCenter {
+  color: #79c0ff;
+  font-weight: 500;
+}
+
+.hudStatus {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.hudBottom {
+  bottom: 0;
+  border-top: 1px solid var(--card-border);
+  font-size: 12px;
+}
+
+.rulerL,
+.rulerR {
+  position: absolute;
+  top: 60px;
+  bottom: 60px;
+  width: 10px;
+  background: repeating-linear-gradient(to bottom, var(--card-border) 0 1px, transparent 1px 12px);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.rulerL { left: 0; }
+.rulerR { right: 0; }
+
+.rail {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  bottom: 60px;
+  width: 2px;
+  background: var(--blue-gradient);
+  transform-origin: top;
+  pointer-events: none;
+}
+
+/* =========================================
+   MINIMAL DASHBOARD CARDS
+   ========================================= */
+
+.card {
+  width: clamp(280px, 20vw, 320px);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  will-change: transform, opacity;
+  align-self: center;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatarCircle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #21262d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.headerMeta {
+  flex: 1;
+  min-width: 0;
+}
+
+.headerMeta b {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.headerMeta small {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.minimalBadge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: rgba(0, 97, 255, 0.1);
+  color: #79c0ff;
+  border: 1px solid rgba(0, 97, 255, 0.25);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Salary Row */
+.salaryRow {
+  background: #21262d;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.salaryLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.salaryAmount {
+  font-size: 13px;
+  font-weight: 700;
+  color: #79c0ff;
+  letter-spacing: -0.01em;
+}
+
+/* Mini Tags Row */
+.tagsRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tagPill {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 8px;
+  background: var(--pill-bg);
+  color: #8b949e;
+}
+
+/* Skills List */
+.skillsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.skillsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.skillRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #1c2128;
+  font-size: 12px;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+.skillRow[data-on="true"] {
+  color: #ffffff;
+  background: #21262d;
+  border-left: 2px solid #38bdf8;
+}
+
+.skillRow[data-soft="true"] {
+  opacity: 0.55;
+}
+
+.matchIndicator {
+  color: #79c0ff;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.needIndicator {
+  color: #8b949e;
+  font-size: 11px;
+}
+
+/* =========================================
+   CENTER ALIGNMENT CORE (BLUEISH GRADIENT)
+   ========================================= */
+
+.readout {
+  position: absolute;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.beamL,
+.beamR {
+  position: absolute;
+  top: 55px;
+  height: 1px;
+  width: 10vw;
+  background: linear-gradient(to right, rgba(0, 97, 255, 0.4), rgba(56, 189, 248, 0.1));
+  pointer-events: none;
+}
+
+.beamL { right: 100%; transform: rotate(180deg); }
+.beamR { left: 100%; }
+
+.gaugeWrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gaugeSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.gaugeBg {
+  fill: none;
+  stroke: #21262d;
+  stroke-width: 4;
+}
+
+.gaugeMeter {
+  fill: none;
+  stroke: url(#blueGaugeGradient);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.scoreBox {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.scoreBox b {
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.scorePct {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+.salaryOverlapBox {
+  width: 190px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.trackBar {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background: #21262d;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.trackA, .trackB, .trackFill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.trackA { left: 0; width: 65%; background: #38bdf8; opacity: 0.3; }
+.trackB { left: 35%; width: 65%; background: #0061ff; opacity: 0.3; }
+.trackFill { left: 35%; width: 30%; background: var(--blue-gradient); transform-origin: left; }
+
+.overlapText {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* Minimal Impact Ring */
+.ring {
+  position: absolute;
+  z-index: 20;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 1.5px solid #38bdf8;
+  box-shadow: 0 0 40px rgba(0, 97, 255, 0.4);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* =========================================
+   MINIMAL CHAT WINDOW (Dashboard Style)
+   ========================================= */
+
+.chat {
+  z-index: 25;
+  width: min(480px, 92vw);
+  background: #161b22;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--card-border);
+  background: #1c2128;
+}
+
+.chatHeaderUser {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatarCircleSmall {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #21262d;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.chatHeaderUser b {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  display: block;
+}
+
+.chatStatusText {
+  font-size: 11px;
+  color: #79c0ff;
+  display: block;
+}
+
+.chatTimeBadge {
+  font-size: 11px;
+  color: var(--text-muted);
+  background: #21262d;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+.msgs {
+  min-height: 160px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.msgs p {
+  margin: 0;
+  max-width: 80%;
+  padding: 9px 13px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.bubbleThem {
+  background: #21262d;
+  color: #e6edf3;
+  align-self: flex-start;
+  border-bottom-left-radius: 3px;
+}
+
+.bubbleMe {
+  background: var(--blue-gradient);
+  color: #ffffff;
+  font-weight: 500;
+  align-self: flex-end;
+  border-bottom-right-radius: 3px;
+}
+
+.chatFooter {
+  display: flex;
+  gap: 8px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--card-border);
+  background: #1c2128;
+}
+
+.btnPrimary,
+.btnSecondary {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnPrimary {
+  background: var(--blue-gradient);
+  color: #ffffff;
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--card-border);
+}
+
+.btnSecondary:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@media (max-width: 800px) {
+  .beamL, .beamR {
+    display: none;
+  }
+}

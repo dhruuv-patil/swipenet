@@ -24,6 +24,8 @@ build/
 # OS
 .DS_Store
 Thumbs.db
+*.zip
+*.rar
 
 # Testing
 coverage/

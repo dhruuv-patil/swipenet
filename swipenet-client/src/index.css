@@ -1,0 +1,81 @@
+/* SwipeNet Modern Dribbble / Subframe Job Portal Design System */
+:root {
+  --canvas-bg: #d2f0df;
+  --canvas-gradient: radial-gradient(circle at 50% 30%, #e5f8ee 0%, #cdeee0 55%, #b9e8d1 100%);
+  
+  /* Left Sidebar */
+  --sidebar-bg: #222628;
+  --sidebar-card: #2c3234;
+  --sidebar-card-hover: #363c3f;
+  --sidebar-text: #ffffff;
+  --sidebar-muted: #8d979b;
+  --sidebar-pill-active: #32383a;
+  
+  /* Middle & Right Content Panels */
+  --panel-bg: #ffffff;
+  --panel-surface: #f7f9fa;
+  --panel-border: #edf0f2;
+  --panel-border-hover: #dfe3e6;
+  
+  /* Text */
+  --text-main: #191d1e;
+  --text-secondary: #4a5255;
+  --text-muted: #818c90;
+  
+  /* Accents & Pills */
+  --accent-primary: #222628;
+  --accent-blue: #0061ff;
+  --accent-hover: #16191a;
+  --pill-bg: #edf2f5;
+  --pill-text: #485358;
+  --pill-green-bg: rgba(0, 97, 255, 0.08);
+  --pill-green-text: #0061ff;
+  --pill-blue-bg: #e0f2fe;
+  --pill-blue-text: #0369a1;
+  --pill-pink-bg: #fce7f3;
+  --pill-pink-text: #9d174d;
+  
+  /* Chart Colors */
+  --donut-red: #ff7675;
+  --donut-yellow: #fdcb6e;
+  --donut-green: #38bdf8;
+  
+  /* Typography */
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-family);
+  background: var(--canvas-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.22);
+}

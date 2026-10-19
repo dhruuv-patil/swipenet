@@ -1,0 +1,202 @@
+/* SwipeCard.css - ArtCraft Style */
+.swipe-card-wrapper {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.swipe-card {
+  width: 100%;
+  background: var(--bg-raised);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.swipe-card.animating-right {
+  transform: translateX(120%) rotate(15deg);
+  opacity: 0;
+}
+
+.swipe-card.animating-left {
+  transform: translateX(-120%) rotate(-15deg);
+  opacity: 0;
+}
+
+.card-top-bar {
+  padding: 1rem 1.4rem;
+  background: var(--bg-sunken);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+}
+
+.user-badge.jobseeker {
+  background: rgba(0, 97, 255, 0.08);
+  color: #0061ff;
+  border: 1px solid rgba(0, 97, 255, 0.2);
+}
+
+.user-badge.employer {
+  background: rgba(45, 129, 255, 0.1);
+  color: var(--accent-ink);
+  border: 1px solid rgba(45, 129, 255, 0.25);
+}
+
+.card-content-body {
+  padding: 1.8rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.card-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-main-title {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--ink-strong);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.card-sub-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.card-bio {
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 2px solid var(--accent);
+  padding: 0.75rem 1rem;
+  font-style: italic;
+}
+
+.card-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.meta-chip {
+  background: var(--bg-sunken);
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.meta-chip strong {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--faint);
+  display: block;
+}
+
+.meta-chip span {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-strong);
+}
+
+.skills-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skills-title {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--faint);
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--bg-sunken);
+  border: 1px solid var(--line);
+  padding: 3px 8px;
+}
+
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line);
+}
+
+.action-btn {
+  padding: 1rem;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.skip-action {
+  background: transparent;
+  color: var(--danger);
+  border-right: 1px solid var(--line);
+}
+
+.skip-action:hover {
+  background: rgba(255, 92, 92, 0.12);
+}
+
+.match-action {
+  background: var(--invert-bg);
+  color: var(--invert-fg);
+}
+
+.match-action:hover {
+  background: linear-gradient(135deg, #0061ff, #38bdf8);
+  color: #ffffff;
+}
